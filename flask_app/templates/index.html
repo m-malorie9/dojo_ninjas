@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos</title>
+</head>
+<body>
+    <h1>New Dojo</h1>
+    <!-- action is the app route, needs post for form -->
+    <form action="/create/dojo" method="POST">
+    <label for="dojo_name">Name:</label>
+    <input type="text" name="dojo_name">
+    <input type="submit" value="create">
+    <!-- for button value displays name text -->
+    </form>
+
+    <br>
+
+    <h1>All Dojos</h1>
+    <br>
+
+    <table>
+        <tbody>
+            {% for dojo in dojos %}
+            <tr>
+                <td><a href="/dojos/{{dojo.id}}">{{dojo.name}}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/ninjas">Add a New Ninja</a>
+</body>
+</html>
